@@ -1,0 +1,57 @@
+<!-- Main Window UI -->
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.TableColumn?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="your.package.name.MainController">
+
+    <top>
+        <HBox alignment="CENTER">
+            <Label text="Bookstore Inventory Manager" styleClass="title-label"/>
+        </HBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tableView" prefHeight="400" prefWidth="600">
+            <columns>
+                <TableColumn text="Title" fx:id="titleColumn" prefWidth="150">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="title"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Author" fx:id="authorColumn" prefWidth="150">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="author"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Quantity" fx:id="quantityColumn" prefWidth="100">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="quantity"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Price" fx:id="priceColumn" prefWidth="100">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="price"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+
+        <HBox alignment="CENTER" spacing="10">
+            <Button text="Add Book" onAction="#handleAddBook"/>
+            <Button text="Update Book" onAction="#handleUpdateBook"/>
+            <Button text="Delete Book" onAction="#handleDeleteBook"/>
+        </HBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT">
+            <Button text="Exit" onAction="#handleExit"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
